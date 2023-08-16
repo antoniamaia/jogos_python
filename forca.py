@@ -5,9 +5,12 @@ def jogar():
     print(end="\n")
 
     palavra_secreta = "banana"
+    letras_acertadas = ["_", "_", "_", "_", "_", "_"]
 
     enforcou = False
     acertou = False
+
+    print(letras_acertadas)
 
     # Enquanto não enforcou e ainda não acertou
     # Enquanto (true e true)
@@ -21,12 +24,14 @@ def jogar():
         for letra in palavra_secreta:
             # Comparação indiferente da letra ser maiúscula ou minúscula
             if (chute.upper() == letra.upper()):
-               print("Encontrei a letra {} na posição {}".format(chute, index))
+                # Utilizando lista para mostrar ao jogador as letras acertadas
+                letras_acertadas[index] = letra
+                
 
             index = index + 1
 
 
-        print("Jogando...")
+        print(letras_acertadas)
 
     print("Fim do Jogo")
 
