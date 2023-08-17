@@ -1,10 +1,27 @@
+import random
+
 def jogar():
     print("**********************************")
     print("***Bem vindo ao jogo da Forca!!***")
     print("**********************************")
     print(end="\n")
 
-    palavra_secreta = "melancia".upper()
+    # Utilizando o arquivo para escolher as frutas aleatoriamente
+    arquivo = open ("palavras.txt", "r")
+    palavras = []
+
+    # Laço para filtrar e deixar as palavras como desejamos
+    for linha in arquivo:
+        linha = linha.strip()
+        palavras.append(linha)
+
+    # Fechando o arquivo, boa prática!
+    arquivo.close()
+
+    # Inicializando a variável palavra_secreta, gerada randomicamente 
+    numero = random.randrange(0, len(palavras))
+    palavra_secreta = palavras[numero].upper()
+    
     # 'List comprehentions' para definir os espaços referentes às letras de cada palavra secreta 
     letras_acertadas = ["_" for letra in palavra_secreta]
 
